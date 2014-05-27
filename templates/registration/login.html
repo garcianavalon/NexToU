@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% block title %}Login{% endblock %}
 {% block container %}
 
     {% if form.errors %}
@@ -15,7 +15,7 @@
         </div>
         {% endfor %}
         <input type="submit" value="Login" class="btn btn-success"/>
-        <input type="hidden" name="next" value="{% url 'events:index' %}" />
+        <input type="hidden" name="next" value="" />
     </form>
 
 {% endblock container %}
