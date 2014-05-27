@@ -36,7 +36,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'registration',
 )
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -50,7 +52,14 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'NexToU.urls'
 
 WSGI_APPLICATION = 'NexToU.wsgi.application'
+#TEMPLATES
 
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
+
+TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+    'django.core.context_processors.request',
+)
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
@@ -80,3 +89,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window; you may, of course, use a different value.
