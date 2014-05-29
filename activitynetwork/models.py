@@ -1,15 +1,17 @@
 from django.db import models
 
-# Create your models here.
-from django.db import models
-from django.contrib.auth.models import User  
-from django.utils.translation import ugettext as _  
-from userena.models import UserenaBaseProfile 
+class Need(models.Model):
+    description = models.CharField(max_length=30)
+    def __str__(self):              # __unicode__ on Python 2
+        return self.description
 
-class Activity(models.Models):
-	act_holder = models.ForeignKey(MyProfile)
-	act_name = models.CharField(max_length=30)
-	act_place = models.CharField(max_length=30)   
-	act_datetime = models.DateTimeField('activity date')
-	#act_needs = models.CharField(max_length=30)
-	act_description = models.CharField(max_length=30)  
+class Activity(models.Model):
+    #act_holder = models.ForeignKey(MyProfile)
+    name = models.CharField(max_length=30)
+    place = models.CharField(max_length=30)
+    datetime = models.DateTimeField('activity date')
+    description = models.CharField(max_length=30)
+    needs = models.ManyToManyField(Need)
+    def __str__(self):              # __unicode__ on Python 2
+        return self.name
+
