@@ -59,9 +59,23 @@ AUTHENTICATION_BACKENDS = (
     'guardian.backends.ObjectPermissionBackend',
     'django.contrib.auth.backends.ModelBackend', #this is default
 )
-
+#from accounts app models!
+AUTH_PROFILE_MODULE = 'accounts.VolunteerProfile'
 #django-guardian supports anonymous users object permissions
 ANONYMOUS_USER_ID = -1
+
+#USERENA settings
+LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
+LOGIN_URL = '/accounts/signin/'
+LOGOUT_URL = '/accounts/signout/'
+
+#EMAIL sending
+EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'yourgmailaccount@gmail.com'
+EMAIL_HOST_PASSWORD = 'yourgmailpassword'
 
 ROOT_URLCONF = 'NexToU.urls'
 
