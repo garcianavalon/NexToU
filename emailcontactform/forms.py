@@ -9,7 +9,7 @@ class BasicContactForm(forms.Form):
         pass #TODO
 
 
-class HiddenEmailContactForm(BasicContactForm):
+'''class HiddenEmailContactForm(BasicContactForm):
     email_to = forms.CharField(max_length=30,widget=forms.HiddenInput())
 
     def __init__(self, *args, **kwargs):
@@ -19,3 +19,4 @@ class HiddenEmailContactForm(BasicContactForm):
             raise ValueError("we need an email addres!")
         super(BasicContactForm, self).__init__(*args, **kwargs)
         self.fields['email_to'].initial = email_to_address
+'''

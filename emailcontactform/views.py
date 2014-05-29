@@ -13,7 +13,7 @@ class BasicContactView(FormView):
         return super(BasicContactView, self).form_valid(form)
 
 
-class HiddenEmailContactView(FormView):
+'''class HiddenEmailContactView(FormView):
     #TODO probably this class can inherit from the BasicContactView
     template_name = 'contact.html'
     form_class = HiddenEmailContactForm
@@ -28,6 +28,7 @@ class HiddenEmailContactView(FormView):
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super(HiddenEmailContactView, self).get_context_data(**kwargs)
-
+        #TODO get the user email to be contacted
         context['form'] = HiddenEmailContactForm()
         return context
+'''
