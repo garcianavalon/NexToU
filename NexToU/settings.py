@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'userena',
     'guardian',
     'easy_thumbnails',
+    'accounts',#this is the app for the user profiles using userena
 )
 
 
@@ -56,8 +57,11 @@ MIDDLEWARE_CLASSES = (
 AUTHENTICATION_BACKENDS = (
     'userena.backends.UserenaAuthenticationBackend',
     'guardian.backends.ObjectPermissionBackend',
-    'django.contrib.auth.backends.ModelBackend',
+    'django.contrib.auth.backends.ModelBackend', #this is default
 )
+
+#django-guardian supports anonymous users object permissions
+ANONYMOUS_USER_ID = -1
 
 ROOT_URLCONF = 'NexToU.urls'
 
