@@ -11,8 +11,6 @@ class ActivityListView(ListView):
     model = Activity
     template_name = "activitylist.html"
 
-
-
 class NeedCreateView(CreateView):
     model = Need
     success_url = '/needs/create/'
