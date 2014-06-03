@@ -55,5 +55,10 @@ docs/_build/
 #database
 *.sqlite3
 
+<<<<<<< HEAD
 #private stuff
 email_settings.py
+=======
+
+NexToU/email_settings.py
+>>>>>>> more-models
