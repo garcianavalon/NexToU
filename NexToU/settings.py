@@ -36,9 +36,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'registration',
-    'emailcontactform',
     'activitynetwork',
+    'userena',
+    'guardian',
+    'easy_thumbnails',
+    'accounts',#this is the app for the user profiles using userena
 )
 
 
@@ -50,6 +52,28 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
+AUTHENTICATION_BACKENDS = (
+    'userena.backends.UserenaAuthenticationBackend',
+    'guardian.backends.ObjectPermissionBackend',
+    'django.contrib.auth.backends.ModelBackend', #this is default
+)
+#from accounts app models!
+AUTH_PROFILE_MODULE = 'accounts.VolunteerProfile'
+#django-guardian supports anonymous users object permissions
+ANONYMOUS_USER_ID = -1
+
+#USERENA settings
+LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
+LOGIN_URL = '/accounts/signin/'
+LOGOUT_URL = '/accounts/signout/'
+
+#EMAIL sending
+EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+from email_settings import *
 
 ROOT_URLCONF = 'NexToU.urls'
 
@@ -92,4 +116,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window; you may, of course, use a different value.
