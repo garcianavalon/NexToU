@@ -73,7 +73,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-from email_settings import *
+#from email_settings import *
 
 ROOT_URLCONF = 'NexToU.urls'
 
