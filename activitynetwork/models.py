@@ -1,15 +1,19 @@
 from django.db import models
 
 class Need(models.Model):
+    name = models.CharField(max_length=30)
     description = models.CharField(max_length=30)
 
     def __unicode__(self):              # __unicode__ on Python 2
         return self.description
+
 class Category(models.Model):
     name = models.CharField(max_length=30)
     description = models.CharField(max_length=30)
     def __unicode__(self):
         return self.name
+
+
 
 class Activity(models.Model):
     #act_holder = models.ForeignKey(MyProfile)
@@ -17,8 +21,8 @@ class Activity(models.Model):
     place = models.CharField(max_length=30)
     datetime = models.DateTimeField('activity date')
     description = models.CharField(max_length=30)
-    needs = models.ManyToManyField(Need)
-    category = models.ManyToManyField(Category)
+    need = models.ManyToManyField(Need)
+    category = models.ForeignKey(Category)
     def __unicode__(self):              # __unicode__ on Python 2
         return self.name
 
