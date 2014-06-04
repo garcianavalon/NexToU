@@ -3,7 +3,6 @@ from django.db import models
 class Need(models.Model):
     name = models.CharField(max_length=30)
     description = models.CharField(max_length=30)
-
     def __unicode__(self):              # __unicode__ on Python 2
         return self.description
 
@@ -12,8 +11,6 @@ class Category(models.Model):
     description = models.CharField(max_length=30)
     def __unicode__(self):
         return self.name
-
-
 
 class Activity(models.Model):
     #act_holder = models.ForeignKey(MyProfile)
