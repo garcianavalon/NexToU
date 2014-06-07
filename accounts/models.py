@@ -13,11 +13,6 @@ class VolunteerProfile(UserenaBaseProfile):
                                 max_length=20)
     follow = models.ManyToManyField(Activity)
 
-class Comment(models.Model):
-	text = models.CharField(max_length=100)
-	author = models.ForeignKey(VolunteerProfile, related_name = 'Comment_author')
-	receiver = models.ForeignKey(VolunteerProfile, related_name = 'Comment_receiver') #the one who is reviewed
-
     intro = models.CharField(_('intro'),
                                 max_length=140)
     resume = models.CharField(_('resume'),
@@ -26,4 +21,10 @@ class Comment(models.Model):
                                 max_length=300)
 
     participated_activities = models.ManyToManyField(Activity)
+
+
+class Comment(models.Model):
+	text = models.CharField(max_length=100)
+	author = models.ForeignKey(VolunteerProfile, related_name = 'Comment_author')
+	receiver = models.ForeignKey(VolunteerProfile, related_name = 'Comment_receiver') #the one who is reviewed
 
