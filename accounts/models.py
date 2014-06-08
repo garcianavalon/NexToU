@@ -23,7 +23,7 @@ class VolunteerProfile(UserenaBaseProfile):
                                 max_length=140)
     resume = models.CharField(_('resume'),
                                 max_length=1000)
-    #talents = models.ForeignKey(Talent)
+    talents = models.ForeignKey(Talent)
 
     participated_activities = models.ManyToManyField(Activity,related_name = 'participated_activities')
 
