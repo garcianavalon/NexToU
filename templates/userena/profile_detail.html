@@ -1,7 +1,7 @@
 {% extends 'userena/base_userena.html' %}
 {% load i18n %}
 {% load static from staticfiles %}
-<head>
+{% block meta %}
     <link href="{%static 'css/4-col-portfolio.css' %}" rel="stylesheet">
 	<style>
 		#search {
@@ -31,6 +31,7 @@
 		}
 	</style>
 </head>
+{% endblock %}
 
 {% block title %}
 	mail | NexToU

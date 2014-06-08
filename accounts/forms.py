@@ -1,4 +1,4 @@
-from userena.forms import SignupForm, AuthenticationForm, identification_field_factory, USERNAME_RE
+from userena.forms import SignupForm, AuthenticationForm, identification_field_factory, USERNAME_RE, EditProfileForm
 from django import forms
 from django.utils.translation import ugettext as _
 #custom forms with css and widgets
@@ -24,3 +24,17 @@ class CustomSigninForm(AuthenticationForm):
                                                   _(u"Either supply us with your email or username."))
     password = forms.CharField(label=_("Password"),
                                widget=forms.PasswordInput(attrs=custom_attrs_dict, render_value=False))
+
+class CustomEditProfileForm(EditProfileForm):
+    first_name = forms.CharField(label=_(u'First name'),
+                                 max_length=30,
+                                 widget=forms.TextInput(attrs=custom_attrs_dict),
+                                 required=False)
+    last_name = forms.CharField(label=_(u'Last name'),
+                                max_length=30,
+                                widget=forms.TextInput(attrs=custom_attrs_dict),
+                                required=False)
+    def __init__(self, *args, **kwargs):
+        super(CustomEditProfileForm, self).__init__(*args, **kwargs)
+        for myField in self.fields:
+            self.fields[myField].widget.attrs.update({'class' : 'form-control'})
