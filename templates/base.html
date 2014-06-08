@@ -10,16 +10,20 @@
    <!-- Bootstrap -->
   <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
 
-  {% block meta %}{% endblock %} <!-- too add more stuff in child templates if needed -->
+  {% block meta %}
+  <!-- too add more stuff in child templates if needed -->
+  {% endblock %}
 </head>
 <body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
   <div id="body" class="container">
     {% block body %}
       <div class="content_title">
-        {% block content_title %}{% endblock %}
+        {% block content_title %}
+        {% endblock %}
       </div>
       <div class="content">
-        {% block content %}{% endblock %}
+        {% block content %}
+        {% endblock %}
       </div>
     {% endblock %}
   </div>

@@ -5,7 +5,7 @@ class ActivityCreateView(CreateView):
     model = Activity
     #fields = ['name']
     success_url = '/'
-    template_name = "activitynetwork/example_create_form.html"
+    template_name = "activity_create.html"
 
 class ActivityListView(ListView):
     model = Activity

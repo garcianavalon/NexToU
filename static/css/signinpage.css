@@ -29,6 +29,8 @@ body {
       .form-signin input[type="password"] {
         font-size: 16px;
         height: auto;
+        margin-left:5px;
+        width:230px;
         margin-bottom: 15px;
         padding: 7px 9px;
       }
