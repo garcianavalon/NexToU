@@ -1,6 +1,6 @@
-{% extends 'userena/base_userena.html' %}
+{% extends 'leftmenu.html' %}
 {% load i18n %}
-{% load static from staticfiles %}
+
 {% block meta %}
 {% endblock %}
 
@@ -8,60 +8,39 @@
 	mail | NexToU
 {% endblock %}
 
-{% block body %}
-	<br><br>
-	<br><br>
-	<p align="center"></p>
-	<div align="left" style="margin:50px">
-		<div id="content">
-		      {% block profile_details %}
-			        <img class="mugshot" src="{{ profile.get_mugshot_url }}" alt="{% trans "Your mugshot" %}" />
-			        <dl>
-			          {% block profile_definition_list %}
-			            {% if profile.user.get_full_name %}
-			              <dt>{% trans "Name" %}</dt>
-			              <dd>{{ profile.user.get_full_name }}</dd>
-			            {% endif %}
-			            {% if profile.talents %}
-			              <dt>{% trans "Talents" %}
-			              <dd>{{ profile.talents }}
-			            {% endif %}
-			            {% if profile.intro %}
-			              <dt>{% trans "Intro" %}
-			              <dd>{{ profile.intro }}
-			            {% endif %}
-			            {% if profile.resume %}
-			              <dt>{% trans "Resume" %}
-			              <dd>{{ profile.resume }}
-			            {% endif %}
-			            {% if profile.user.email and not hide_email %}
-			              <dt>{% trans "Email" %}</dt>
-			              <dd>{{ profile.user.email }}</dd>
-			            {% endif %}
-			            {% if profile.age %}
-			              <dt>{% trans "Age" %}</dt>
-			              <dd>{{ profile.age }}</dd>
-			            {% endif %}
-			            {% if profile.about_me %}
-			              <dt>{% trans "About me" %}</dt>
-			              <dd>{{ profile.about_me }}</dd>
-			            {% endif %}
-			          {% endblock %}
-			        </dl>
-		      {% endblock %}
-   		</div>
-    </div>
+{% block lists %}
+<div class="content">
+    <div class="row">
+	{% block profile_details %}
+        <img class="mugshot" src="{{ profile.get_mugshot_url }}" alt="{% trans "Your mugshot" %}" />
+        <dl>
+          {% block profile_definition_list %}
+            {% if profile.user.get_full_name %}
+              <dt>{% trans "Name" %}</dt>
+              <dd>{{ profile.user.get_full_name }}</dd>
+            {% endif %}
+            {% if profile.talents %}
+              <dt>{% trans "Talents" %}
+              <dd>{{ profile.talents }}
+            {% endif %}
+            {% if profile.intro %}
+              <dt>{% trans "Intro" %}
+              <dd>{{ profile.intro }}
+            {% endif %}
+            {% if profile.resume %}
+              <dt>{% trans "Resume" %}
+              <dd>{{ profile.resume }}
+            {% endif %}
+            {% if profile.user.email and not hide_email %}
+              <dt>{% trans "Email" %}</dt>
+              <dd>{{ profile.user.email }}</dd>
+            {% endif %}
+          {% endblock %}
+        </dl>
+    {% endblock %}
+	</div>
+</div>
 	<!-- /.container -->
-    <div class="container">
-        <hr>
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Company 2013</p>
-                </div>
-            </div>
-        </footer>
-    </div>
-    <!-- /.container -->
+
 {% endblock %}
 

@@ -69,6 +69,7 @@ ANONYMOUS_USER_ID = -1
 LOGIN_REDIRECT_URL = ''
 LOGIN_URL = '/accounts/signin/'
 LOGOUT_URL = '/accounts/signout/'
+USERENA_ACTIVATION_REQUIRED = False
 #SITE_ID
 SITE_ID = 1
 #EMAIL sending

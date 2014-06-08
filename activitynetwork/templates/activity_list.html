@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static from staticfiles %}
+{% block meta %}
+{% endblock %}
+
+
+{% block title %}
+    Activities | NexToU
+{% endblock %}
+
+
+{% block body %}
+<br/>
+<br/>
+<br/>
+<br>
+<br>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="tabbable">
+                    <ul class="nav nav-tabs">
+                        <div class="btn-group" data-toggle="buttons-radio">
+                        {% for category in category_list %}
+                            <a href="" data-toggle="tab" button type="button" class="btn btn-new">{{category}}</a>
+                        {% endfor %}
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="tab-content">
+            <div class="tab-pane active" id="taball">
+                <div class="row">
+                    {% for activity in object_list %}
+                        <div class="col-sm-6 col-md-3">
+                            <div class="thumbnail">
+                                <img class="mugshot" src="{{ activity.act_holder.volunteer_profile.get_mugshot_url }}" alt="{% trans "Your mugshot" %}" />
+                                <h5>{{activity.act_holder}}</5>
+                                <div class="caption">
+                                    <h3>{{ activity.name}}</h3>
+                                    <p>{{ activity.datetime}}</p>
+                                    <p>Category: {{activity.category}}</p>
+                                    <p>{{ activity.description}}</p>
+                                    <h5>Needs</h5>
+                                    {% for need in activity.need.all %}
+                                       <p>{{need }}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<div class="container">
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; NexToU 2014</p>
+            </div>
+        </div>
+    </footer>
+</div>
+
+
+{% endblock %}

@@ -21,6 +21,5 @@ urlpatterns = patterns('',
         {'edit_profile_form': CustomEditProfileForm}),
     url(r'^accounts/', include('userena.urls')),
     url(r'^activities/', include('activitynetwork.urls',namespace="activities")),
-    url(r'^needs/create/$',act_views.NeedCreateView.as_view()),
 
 )

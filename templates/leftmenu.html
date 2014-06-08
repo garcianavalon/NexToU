@@ -13,13 +13,13 @@
         <div class="list-group">
             <ul class="nav" id="side-menu">
                 <li>
-                    <a href="{% url 'userena_profile_detail' %}"><i class="fa fa-info fa-fw"></i>My Personal Information</a>
+                    <a href="{% url 'userena_profile_detail' user.username %}"><i class="fa fa-info fa-fw"></i>My Personal Information</a>
                 </li>
                 <li>
-                    <a href="info_act.html"><i class="fa fa-discuss fa-fw"></i>My Activity</a>
+                    <a href="{% url 'activities:hosting' user.username %}"><i class="fa fa-discuss fa-fw"></i>My Activity</a>
                 </li>
                 <li>
-                    <a href="info_follow.html"><i class="fa fa-follow fa-fw"></i>Following</a>
+                    <a href="{% url 'activities:following' user.username %}"><i class="fa fa-follow fa-fw"></i>Following</a>
                 </li>
             </ul>
             <!-- /#side-menu -->
