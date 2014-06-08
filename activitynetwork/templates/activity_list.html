@@ -7,122 +7,59 @@
 {% endblock %}
 
 {% block meta %}
-<style>
-        #search {
-        width: 202px;
-        height: 32px;
-        float: left;
-        margin: 1% 0 0 30%;
-        background: url(http://lh4.ggpht.com/_HjB26hkIEK8/S4ef8dinkyI/AAAAAAAAKMs/GJwru6v7zk4/Search%20012.png) no-repeat;
-        }
-        #s {
-        width: 160px;
-        margin: 7px 0 0 4px;
-        float: left;
-        border: none;
-        background: none;
-        color: #000000;
-        font-family: Arial;
-        }
-        #r {
-        width: 25px;
-        height: 25px;
-        margin: 3px 2px 0 0;
-        float: right;
-        cursor: pointer;
-        border: none;
-        background: none;
-        }
-    </style>
+
 {% endblock %}
 
 {% block body %}
-<a href="{% url 'landing' %}">
-        <img src="{% static 'img/LOGO.png' %}" width=20% style="float:left" hspace="20" vspace="10"></img>
-</a>
-
-<form action='http://www.google.com/search' target="_blank" id='search' method='get'>
-    <input type="hidden" name="sitesearch" value="網址" />
-    <input id="s" name="q" type="text" title="輸入搜尋文字" value="" />
-    <input id="r" type="submit" title="搜尋" value="" />
-</form>
-
-<div align="left">
-        <br>
-        <a href="{% url 'activities:create' %}">
-            <img src="{% static 'img/create.png' %}" width=10% hspace="1%"></img>
-        </a>
-        <a href="info_info.html">
-            <img src="{% static 'img/info.png' %}" width=6% hspace="1%"></img>
-        </a>
-        <a href="{% url 'userena_signout' %}">
-            <img src="{% static 'img/logout.png' %}" width=6% ></img>
-        </a>
-</div>
-
+<br/>
+<br/>
+<br/>
+<br>
+<br>
 <div class="container">
-
-<div class="row">
-    <div class="row row-offcanvas-left row-offcanvas row-offcanvas-right">
-        <div class="col-xs-0 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
-            <div class="list-group">
-                <ul class="nav" id="side-menu">
-                    <li>
-                    <a href="info_info.html"><i class="fa fa-info fa-fw"></i>My Pesonal Information</a>
-                    </li>
-                    <li>
-                        <a href="info_act.html"><i class="fa fa-discuss fa-fw"></i>My Activity</a>
-                    </li>
-                    <li>
-                        <a href="info_follow.html"><i class="fa fa-follow fa-fw"></i>Following</a>
-                    </li>
-                </ul>
-                <!-- /#side-menu -->
-            </div>
-            <!-- /.sidebar-collapse -->
-        </div>
-        <!--/span-->
-<div class="content">
     <div class="row">
-              <div class="col-sm-6 col-md-3">
-                <div class="thumbnail">
-                    <a href="modify_act.html">
-                    <img alt="..." src="{% static 'img/example.jpg'%}">
-                    </a>
-                    <div class="caption">
-                        <h3>ALL 1</h3>
-                        <p>...</p>
+        <div class="row row-offcanvas-left row-offcanvas row-offcanvas-right">
+            <div class="col-xs-0 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
+                <div class="list-group">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="info_info.html"><i class="fa fa-info fa-fw"></i>My Personal Information</a>
+                        </li>
+                        <li>
+                            <a href="info_act.html"><i class="fa fa-discuss fa-fw"></i>My Activity</a>
+                        </li>
+                        <li>
+                            <a href="info_follow.html"><i class="fa fa-follow fa-fw"></i>Following</a>
+                        </li>
+                    </ul>
+                    <!-- /#side-menu -->
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+        <div class="content">
+            <div class="row">
+            {% for activity in object_list %}
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                            <p>{{activity.act_holder}}</p>
+                        <div class="caption">
+                            <h3>{{ activity.name}}</h3>
+                            <p>{{ activity.datetime}}</p>
+                            <p>Category: {{activity.category}}</p>
+                            <p>{{ activity.description}}</p>
+                            <h5>Needs</h5>
+                            {% for need in activity.need.all %}
+                               <p>{{need }}</p>
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
-              </div>
-
-              <div class="col-sm-6 col-md-3">
-                <div class="thumbnail">
-                  <a href="modify_act.html">
-                    <img alt="..." src="{% static 'img/example.jpg'%}">
-                  </a>
-                  <div class="caption">
-                    <h3>ALL 2</h3>
-                    <p>...</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-sm-6 col-md-3">
-                <div class="thumbnail">
-                    <a href="modify_act.html">
-                        <img alt="..." src="{% static 'img/example.jpg'%}">
-                    </a>
-                  <div class="caption">
-                    <h3>ALL 3</h3>
-                    <p>...</p>
-                  </div>
-                </div>
-              </div>
+            {% empty %}
+                <h3>No activities</h3>
+            {% endfor %}
+            </div>
+        </div>
     </div>
-</div>
-<!--/span-->
-
 </div>
 
 <!--/row-->

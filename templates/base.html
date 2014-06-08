@@ -15,21 +15,65 @@
   ================================================== -->
   <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
   <script src="{% static "js/bootstrap.min.js" %}"></script>
+  <style>
+        #search {
+        width: 202px;
+        height: 32px;
+        float: left;
+        margin: 1% 0 0 30%;
+        background: url(http://lh4.ggpht.com/_HjB26hkIEK8/S4ef8dinkyI/AAAAAAAAKMs/GJwru6v7zk4/Search%20012.png) no-repeat;
+        }
+        #s {
+        width: 160px;
+        margin: 7px 0 0 4px;
+        float: left;
+        border: none;
+        background: none;
+        color: #000000;
+        font-family: Arial;
+        }
+        #r {
+        width: 25px;
+        height: 25px;
+        margin: 3px 2px 0 0;
+        float: right;
+        cursor: pointer;
+        border: none;
+        background: none;
+        }
+    </style>
   {% block meta %}
   <!-- too add more stuff in child templates if needed -->
   {% endblock %}
 </head>
 <body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
   <div id="body" class="container">
+    {% block logo%}
+      <a href="{% url 'landing' %}">
+          <img src="{% static 'img/LOGO.png' %}" width=20% style="float:left" hspace="20" vspace="10"></img>
+      </a>
+    {% endblock %}
+    {% block search %}
+      <form action='http://www.google.com/search' target="_blank" id='search' method='get'>
+      <input type="hidden" name="sitesearch" value="網址" />
+      <input id="s" name="q" type="text" title="輸入搜尋文字" value="" />
+      <input id="r" type="submit" title="搜尋" value="" />
+      </form>
+
+      <div align="left">
+              <br>
+              <a href="{% url 'activities:create' %}">
+                  <img src="{% static 'img/create.png' %}" width=10% hspace="1%"></img>
+              </a>
+              <a href="info_info.html">
+                  <img src="{% static 'img/info.png' %}" width=6% hspace="1%"></img>
+              </a>
+              <a href="{% url 'userena_signout' %}">
+                  <img src="{% static 'img/logout.png' %}" width=6% ></img>
+              </a>
+      </div>
+    {% endblock %}
     {% block body %}
-      <div class="content_title">
-        {% block content_title %}
-        {% endblock %}
-      </div>
-      <div class="content">
-        {% block content %}
-        {% endblock %}
-      </div>
     {% endblock %}
   </div>
 
