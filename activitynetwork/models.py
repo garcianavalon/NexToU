@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Need(models.Model):
     name = models.CharField(max_length=30)
@@ -13,7 +14,7 @@ class Category(models.Model):
         return self.name
 
 class Activity(models.Model):
-    #act_holder = models.ForeignKey(MyProfile)
+    act_holder = models.ForeignKey(User)
     name = models.CharField(max_length=30)
     place = models.CharField(max_length=30)
     datetime = models.DateTimeField('activity date')

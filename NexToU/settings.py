@@ -65,7 +65,7 @@ AUTH_PROFILE_MODULE = 'accounts.VolunteerProfile'
 ANONYMOUS_USER_ID = -1
 
 #USERENA settings
-LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
+LOGIN_REDIRECT_URL = ''
 LOGIN_URL = '/accounts/signin/'
 LOGOUT_URL = '/accounts/signout/'
 #SITE_ID
