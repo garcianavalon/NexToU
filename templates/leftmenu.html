@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block body %}
+<br/>
+<br/>
+<br/>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="row row-offcanvas-left row-offcanvas row-offcanvas-right">
+    {% block leftmenu %}
+    <div class="col-xs-0 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
+        <div class="list-group">
+            <ul class="nav" id="side-menu">
+                <li>
+                    <a href="info_info.html"><i class="fa fa-info fa-fw"></i>My Personal Information</a>
+                </li>
+                <li>
+                    <a href="info_act.html"><i class="fa fa-discuss fa-fw"></i>My Activity</a>
+                </li>
+                <li>
+                    <a href="info_follow.html"><i class="fa fa-follow fa-fw"></i>Following</a>
+                </li>
+            </ul>
+            <!-- /#side-menu -->
+        </div>
+        <!-- /.sidebar-collapse -->
+    </div>
+    {% endblock %}
+     {% block lists %}
+     {% endblock %}
+            </div>
+    </div>
+</div>
+<hr>
+</div>
+
+<div class="container">
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; NexToU 2014</p>
+            </div>
+        </div>
+    </footer>
+</div>
+{% endblock %}
