@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'guardian',
     'easy_thumbnails',
     'accounts',#this is the app for the user profiles using userena
+    'bootstrap3_datetime',
 )
 
 

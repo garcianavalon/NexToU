@@ -6,8 +6,14 @@ class ActivityCreateView(CreateView):
     model = Activity
     form_class = ActivityForm
     #fields = ['name']
-    success_url = '/'
+    success_url = '/activities/list/'
     template_name = "activity_create.html"
+
+    def form_valid(self, form):
+        object = form.save(commit=False)
+        object.act_holder = self.request.user
+        object.save()
+        return super(ActivityCreateView, self).form_valid(form)
 
 class ActivityListView(ListView):
     model = Activity

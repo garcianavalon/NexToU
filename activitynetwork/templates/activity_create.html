@@ -7,26 +7,8 @@
 {% endblock %}
 
 {% block meta %}
-<script>
-        var item = 1;
-        function AddItem(){
-            item++;
-            div = document.getElementById('items');
-            reference = document.getElementById('addnew');
-            TD = document.createElement('td');
-            TD.innerHTML = '<p><input type="text" name="qty_1" placeholder="date:y/m/d"/> <input type="text" name="qty_2" placeholder="event"/></p>';
-            TR = document.createElement('tr');
-            TR.appendChild(TD);
-            div.insertBefore(TR, reference);
-        }
-        function fetchElement(f){
-            var para = '';
-            for(var i=0;i<f.elements.length;i++)
-            para += f.elements.name+'='+f.elements.value+'&'
-            alert(para.substr(0, para.length -1));
-            return false;
-        }
-    </script>
+
+    {{ form.media }}
     <style>
         #search {
         width: 202px;
@@ -89,20 +71,21 @@
                 create an activity
             </div>
             <div class="panel-body">
-                <form action="/contact/" method="post">
+                <form action="" method="post">
                 {% csrf_token %}
                 <fieldset>
-                    {% for field in form %}
+                    {% for field in form.visible_fields %}
                         <div class="form-group">
                             {{ field.errors }}
                             {{ field.label_tag }} {{ field }}
                         </div>
                     {% endfor %}
+                    {% for field in form.hidden_fields %}
+                        <div>{{ field }}</div>
+                    {% endfor %}
                     <div class="form-group">
                         <div class="col-lg-10 col-lg-offset-9">
-                            <a href="content_act.html">
-                                <button class="btn btn-default">cancel</button>
-                            </a>
+                            <a href="{% url 'activities:list' %}" class="btn btn-default">cancel</a>
                             <button type="submit" class="btn btn-primary">create</button>
                         </div>
                     </div>

@@ -5,7 +5,7 @@ class Need(models.Model):
     name = models.CharField(max_length=30)
     description = models.CharField(max_length=30)
     def __unicode__(self):              # __unicode__ on Python 2
-        return self.description
+        return self.name
 
 class Category(models.Model):
     name = models.CharField(max_length=30)
@@ -18,7 +18,7 @@ class Activity(models.Model):
     name = models.CharField(max_length=30)
     place = models.CharField(max_length=30)
     datetime = models.DateTimeField('activity date')
-    description = models.CharField(max_length=30)
+    description = models.CharField(max_length=100)
     need = models.ManyToManyField(Need)
     category = models.ForeignKey(Category)
     def __unicode__(self):              # __unicode__ on Python 2
