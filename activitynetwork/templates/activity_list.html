@@ -2,6 +2,7 @@
 {% load i18n %}
 {% load static from staticfiles %}
 {% block meta %}
+
 {% endblock %}
 
 
@@ -22,14 +23,16 @@
                 <div class="tabbable">
                     <ul class="nav nav-tabs">
                         <div class="btn-group" data-toggle="buttons-radio">
+                            <a href="" data-toggle="tab" button type="button" class="btn btn-info">All</a>
                         {% for category in category_list %}
-                            <a href="" data-toggle="tab" button type="button" class="btn btn-new">{{category}}</a>
+                            <a href="" data-toggle="tab" button type="button" class="btn btn-info">{{category}}</a>
                         {% endfor %}
                         </div>
                     </ul>
                 </div>
             </div>
         </div>
+        <br>
         <div class="tab-content">
             <div class="tab-pane active" id="taball">
                 <div class="row">
@@ -47,6 +50,8 @@
                                     {% for need in activity.need.all %}
                                        <p>{{need }}</p>
                                     {% endfor %}
+                                    <a class="btn btn-success" data-toggle="modal" href="#all1more">Follow</a>
+                                    <a href="#" class="btn btn-warning" role="button">Connect</a>
                                 </div>
                             </div>
                         </div>
