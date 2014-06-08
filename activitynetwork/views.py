@@ -22,7 +22,15 @@ class ActivityListView(ListView):
 class ActivityFollowingListView(ListView):
     model = Activity
     template_name = "activity_following_list.html"
+    def get_context_data(self, **kwargs):
+        context = super(PublisherDetail, self).get_context_data(**kwargs)
+        context['publisher'] = self.object
+        return context
 
 class ActivityHostingListView(ListView):
     model = Activity
     template_name = "activity_hosting_list.html"
+    def get_context_data(self, **kwargs):
+        context = super(PublisherDetail, self).get_context_data(**kwargs)
+        context['publisher'] = self.object
+        return context
