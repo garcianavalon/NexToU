@@ -18,8 +18,7 @@ urlpatterns = patterns('',
         userena_views.signin,
         {'auth_form': CustomSigninForm}),
     url(r'^accounts/', include('userena.urls')),
-    url(r'^activities/create/$',act_views.ActivityCreateView.as_view()),
-    url(r'^activities/list/$',act_views.ActivityListView.as_view()),
+    url(r'^activities/', include('activitynetwork.urls',namespace="activities")),
     url(r'^needs/create/$',act_views.NeedCreateView.as_view()),
 
 )
