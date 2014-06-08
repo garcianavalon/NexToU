@@ -1,8 +1,10 @@
 from django.views.generic import CreateView, ListView
 from activitynetwork.models import Activity, Need
+from activitynetwork.forms import ActivityForm
 
 class ActivityCreateView(CreateView):
     model = Activity
+    form_class = ActivityForm
     #fields = ['name']
     success_url = '/'
     template_name = "activity_create.html"

@@ -2,7 +2,7 @@ from userena.forms import SignupForm, AuthenticationForm, identification_field_f
 from django import forms
 from django.utils.translation import ugettext as _
 #custom forms with css and widgets
-custom_attrs_dict = {"class":"required input-block-level"}
+custom_attrs_dict = {"class":"required form-control"}
 class CustomSignupForm(SignupForm):
     username = forms.RegexField(regex=USERNAME_RE,
                                 max_length=30,

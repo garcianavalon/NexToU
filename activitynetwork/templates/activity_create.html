@@ -57,111 +57,74 @@
 {% endblock %}
 
 {% block body %}
-    <a href="{% url 'landing' %}">
-            <img src="{% static 'img/LOGO.png' %}" width=20% style="float:left" hspace="20" vspace="10"></img>
-    </a>
+<a href="{% url 'landing' %}">
+        <img src="{% static 'img/LOGO.png' %}" width=20% style="float:left" hspace="20" vspace="10"></img>
+</a>
 
-    <form action='http://www.google.com/search' target="_blank" id='search' method='get'>
-        <input type="hidden" name="sitesearch" value="網址" />
-        <input id="s" name="q" type="text" title="輸入搜尋文字" value="" />
-        <input id="r" type="submit" title="搜尋" value="" />
-    </form>
+<form action='http://www.google.com/search' target="_blank" id='search' method='get'>
+    <input type="hidden" name="sitesearch" value="網址" />
+    <input id="s" name="q" type="text" title="輸入搜尋文字" value="" />
+    <input id="r" type="submit" title="搜尋" value="" />
+</form>
 
+<div align="left">
+        <br>
+        <a href="{% url 'activities:create' %}">
+            <img src="{% static 'img/create.png' %}" width=10% hspace="1%"></img>
+        </a>
+        <a href="info_info.html">
+            <img src="{% static 'img/info.png' %}" width=6% hspace="1%"></img>
+        </a>
+        <a href="{% url 'userena_signout' %}">
+            <img src="{% static 'img/logout.png' %}" width=6% ></img>
+        </a>
+</div>
 
-    <div align="left">
-            <br>
-            <a href="{% url 'activities:create' %}">
-                <img src="{% static 'img/create.png' %}" width=10% hspace="1%"></img>
-            </a>
-            <a href="info_info.html">
-                <img src="{% static 'img/info.png' %}" width=6% hspace="1%"></img>
-            </a>
-            <a href="{% url 'landing' %}">
-                <img src="{% static 'img/logout.png' %}" width=6% ></img>
-            </a>
-    </div>
-
-    <br><br>
-    <div class="container">
-    <div class="row">
-        <div class="col-xs-9 col-sm-9">
-                        <div class="panel panel-default">
-                                <div class="panel-heading">create an activity</div>
-                                    <div class="panel-body">
-                                        <form class="form-horizontal">
-                                        <fieldset>
-                                        <div class="form-group">
-                                            <label for="inputName" class="col-lg-2 control-label">title</label>
-                                            <div class="col-lg-10">
-                                                <input type="text" class="form-control" id="inputName" placeholder="title">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputEmail" class="col-lg-2 control-label">photo</label>
-                                            <div class="col-lg-3">
-                                                <input type="file" name="upload" size="20" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputplace" class="col-lg-2 control-label">dates</label>
-                                                <div class="col-lg-10">
-                                                <input type="place" class="form-control" id="inputPhone" placeholder="due date or performance date.">
-                                                </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="textArea" class="col-lg-2 control-label">description</label>
-                                            <div class="col-lg-10">
-                                                <textarea class="form-control" rows="3" id="textArea" placeholder="briefly describe your activity."></textarea>
-                                            </div>
-                                        </div>
-
-                                        <form name="form1" method="post" onsubmit="return fetchElement(document.form1);">
-                                            <table>
-                                                <tbody id="items">
-                                                    <tr>
-                                                        <label for="textArea" class="col-lg-2 control-label">important date </label>
-                                                            <p>
-                                                                <input type="text" name="qty_1" placeholder="date:y/m/d"/> <input type="text" name="qty_2" placeholder="event"/>
-                                                            </p>
-                                                    </tr>
-                                                    <tr id="addnew">
-                                                        <label for="textArea" class="col-lg-2 control-label"></label>
-                                                        <td><input name="addnew" type="button" value="Add Item" onclick="AddItem();"/></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </form>
-
-                                        </fieldset>
-                                        </form>
-                                        <div class="form-group">
-                                            <div class="col-lg-10 col-lg-offset-9">
-                                                <a href="content_act.html">
-                                                    <button class="btn btn-default">cancel</button>
-                                                </a>
-                                                <button type="submit" class="btn btn-primary">create</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
+<br><br>
+<div class="container">
+<div class="row">
+    <div class="col-xs-9 col-sm-9">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                create an activity
+            </div>
+            <div class="panel-body">
+                <form action="/contact/" method="post">
+                {% csrf_token %}
+                <fieldset>
+                    {% for field in form %}
+                        <div class="form-group">
+                            {{ field.errors }}
+                            {{ field.label_tag }} {{ field }}
                         </div>
+                    {% endfor %}
+                    <div class="form-group">
+                        <div class="col-lg-10 col-lg-offset-9">
+                            <a href="content_act.html">
+                                <button class="btn btn-default">cancel</button>
+                            </a>
+                            <button type="submit" class="btn btn-primary">create</button>
+                        </div>
+                    </div>
+                </fieldset>
+                </form>
+
+            </div>
         </div>
     </div>
-    </div>
-    <!-- /.container -->
+</div>
+</div>
+<!-- /.container -->
 
-    <div class="container">
-
-        <hr>
-
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Company 2013</p>
-                </div>
+<div class="container">
+    <hr>
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Company 2013</p>
             </div>
-        </footer>
-
-    </div>
+        </div>
+    </footer>
+</div>
 {% endblock %}
 
