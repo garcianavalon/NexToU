@@ -7,12 +7,16 @@
 {% block meta %}
     <link href="{% static "css/signinpage.css" %}" rel="stylesheet">
 {% endblock %}
-{% block content %}
+{% block logo %}
 <div align="center" >
-    <br/><br/>
-    <img src="{% static "img/logo.jpg" %}" width=40%>
-    <br/><br/>
+  <br/><br/>
+  <img src="{% static "img/logo.jpg" %}" width=40%>
+  <br/><br/>
 </div>
+{% endblock %}
+{% block search %}
+{% endblock %}
+{% block body %}
 <form action="" method="post" class="form-signin">
   {% csrf_token %}
   <fieldset>
