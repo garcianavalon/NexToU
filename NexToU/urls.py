@@ -3,14 +3,13 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
-from views import IndexView, TalentsView
+from views import IndexView
 from activitynetwork import views as act_views
 from accounts.forms import CustomSignupForm, CustomSigninForm, CustomEditProfileForm
 from userena import views as userena_views
 urlpatterns = patterns('',
 
     url(r'^$', IndexView.as_view(), name='landing'), #Index, first page
-    url(r'^talents/', TalentsView.as_view(), name='talents'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/signup/$',
         userena_views.signup,
