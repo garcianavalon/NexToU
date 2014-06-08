@@ -51,6 +51,18 @@
 			              <dt>{% trans "Name" %}</dt>
 			              <dd>{{ profile.user.get_full_name }}</dd>
 			            {% endif %}
+			            {% if profile.talents %}
+			              <dt>{% trans "Talents" %}
+			              <dd>{{ profile.talents }}
+			            {% endif %}
+			            {% if profile.intro %}
+			              <dt>{% trans "Intro" %}
+			              <dd>{{ profile.intro }}
+			            {% endif %}
+			            {% if profile.resume %}
+			              <dt>{% trans "Resume" %}
+			              <dd>{{ profile.resume }}
+			            {% endif %}
 			            {% if profile.user.email and not hide_email %}
 			              <dt>{% trans "Email" %}</dt>
 			              <dd>{{ profile.user.email }}</dd>
@@ -58,14 +70,6 @@
 			            {% if profile.age %}
 			              <dt>{% trans "Age" %}</dt>
 			              <dd>{{ profile.age }}</dd>
-			            {% endif %}
-			            {% if profile.website %}
-			              <dt>{% trans "Website" %}</dt>
-			              <dd>{{ profile.website|urlize }}</dd>
-			            {% endif %}
-			            {% if profile.location %}
-			              <dt>{% trans "Location" %}</dt>
-			              <dd>{{ profile.location }}</dd>
 			            {% endif %}
 			            {% if profile.about_me %}
 			              <dt>{% trans "About me" %}</dt>
