@@ -19,8 +19,10 @@ class ActivityListView(ListView):
     model = Activity
     template_name = "activity_list.html"
 
-class NeedCreateView(CreateView):
-    model = Need
-    success_url = '/needs/create/'
-    #fields = ['name']
-    template_name = "activitynetwork/example_create_form.html"
+class ActivityFollowingListView(ListView):
+    model = Activity
+    template_name = "activity_following_list.html"
+
+class ActivityHostingListView(ListView):
+    model = Activity
+    template_name = "activity_hosting_list.html"
