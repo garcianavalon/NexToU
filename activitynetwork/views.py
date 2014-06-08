@@ -17,7 +17,7 @@ class ActivityCreateView(CreateView):
 
 class ActivityListView(ListView):
     model = Activity
-    template_name = "activitylist.html"
+    template_name = "activity_list.html"
 
 class NeedCreateView(CreateView):
     model = Need
