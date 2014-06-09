@@ -42,20 +42,18 @@
         <div class="row">
         	<div align="center">
 	            <div class="col-lg-6 col-md-6 portfolio-item">
-	                <a href="#">
+	                <a href="{% url 'activities:list' %}">
 	                    <img name="act" alt="" src="{% static 'img/act1.png' %}" width="80%"
 							 onmouseout="this.src='{% static 'img/act1.png' %}'"
-							 onmouseover="this.src='{% static 'img/act2.png' %}'"
-							 onclick="setBanner(); showFlag(); "/>
+							 onmouseover="this.src='{% static 'img/act2.png' %}'"/>
 	                </a>
 	            </div>
 
 	            <div class="col-lg-6 col-md-6 portfolio-item">
-	                <a href="">
+	                <a href="{% url 'userena_profile_list' %}">
 	                    <img name="tal" alt="" src="{% static 'img/tal1.png' %}" width="80%"
 							 onmouseout="this.src='{% static 'img/tal1.png' %}'"
-							 onmouseover="this.src='{% static 'img/tal2.png' %}'"
-							 onclick="setBanner(); showFlag(); "/>
+							 onmouseover="this.src='{% static 'img/tal2.png' %}'"/>
 	                </a>
 	            </div>
 	        </div>

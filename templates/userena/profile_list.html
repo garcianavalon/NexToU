@@ -5,7 +5,7 @@
 {% endblock %}
 
 
-{% block title %}	
+{% block title %}
 	talents | NexToU
 {% endblock %}
 
@@ -22,6 +22,8 @@
         		<div class="tabbable">
          			<ul class="nav nav-tabs">
             			<div class="btn-group" data-toggle="buttons-radio">
+                            <div class="btn-group" data-toggle="buttons-radio">
+                            <a href="" data-toggle="tab" button type="button" class="btn btn-info">All</a>
             			  {% for talents in talents_list %}
 						 	<a href="#taball" data-toggle="tab" button type="button" class="btn btn-info">{{ talents.name }}</a>
 						  {% endfor %}
@@ -32,16 +34,16 @@
         </div>
         <br>
         <div class="tab-content">
-            <div class="tab-pane active" id="taball">                   
+            <div class="tab-pane active" id="taball">
 	            <div class="row">
 	            	{% for profile in profile_list %}
 			            <div class="col-sm-6 col-md-3">
 				            <div class="thumbnail">
 				            	<img data-src="holder.js/300x200" alt="..." src="{{ profile.get_mugshot_url }}">
-				                <div class="caption">	
+				                <div class="caption">
 				                	<a href="{% url 'userena_profile_detail' profile.user.username %}">
 				                    <h3>{{ profile.user.get_full_name }}</h3>
-				                    <p>{{ profile.intro }}</p>				           
+				                    <p>{{ profile.intro }}</p>
 				                </div>
 				            </div>
 				        </div>

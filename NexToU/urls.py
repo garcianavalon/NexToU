@@ -3,8 +3,6 @@ from django.contrib import admin
 admin.autodiscover()
 
 from views import IndexView
-from activitynetwork import views as act_views
-from activitynetwork.models import Category
 from accounts.forms import CustomSignupForm, CustomSigninForm, CustomEditProfileForm
 from accounts.views import CustomProfileListView
 from userena import views as userena_views
