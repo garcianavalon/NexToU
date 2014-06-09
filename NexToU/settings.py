@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'easy_thumbnails',
     'accounts',#this is the app for the user profiles using userena
     'bootstrap3_datetime',
+    'userena.contrib.umessages',
 )
 
 

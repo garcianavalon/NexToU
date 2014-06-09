@@ -22,5 +22,5 @@ urlpatterns = patterns('',
     url(r'^accounts/(?P<username>[\.\w-]+)/profile_detail/$', userena_views.profile_detail),
     url(r'^accounts/', include('userena.urls')),
     url(r'^activities/', include('activitynetwork.urls',namespace="activities")),
-
+    url(r'^messages/', include('userena.contrib.umessages.urls')),
 )
