@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% load static from staticfiles %}
+
 {% block meta %}
+
 
 {% endblock %}
 
@@ -50,7 +52,7 @@
                                     {% for need in activity.need.all %}
                                        <p>{{need }}</p>
                                     {% endfor %}
-                                    <a class="btn btn-success" data-toggle="modal" href="#all1more">Follow</a>
+                                    <button class="btn btn-success" data-toggle="modal" href="#all1more">Follow</button>
                                     <a href="#" class="btn btn-warning" role="button">Connect</a>
                                 </div>
                             </div>
