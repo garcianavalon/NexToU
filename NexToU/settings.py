@@ -70,6 +70,7 @@ LOGIN_REDIRECT_URL = ''
 LOGIN_URL = '/accounts/signin/'
 LOGOUT_URL = '/accounts/signout/'
 USERENA_ACTIVATION_REQUIRED = False
+USERENA_DEFAULT_PRIVACY = 'open'
 #SITE_ID
 SITE_ID = 1
 #EMAIL sending
