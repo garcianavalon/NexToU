@@ -1,5 +1,6 @@
-from userena.forms import SignupForm, AuthenticationForm, identification_field_factory, USERNAME_RE, EditProfileForm
+from userena.forms import SignupForm, AuthenticationForm, identification_field_factory, USERNAME_RE, EditProfileForm, ChangeEmailForm
 from django import forms
+from django.contrib.auth.forms import PasswordChangeForm
 from django.utils.translation import ugettext as _
 from userena.contrib.umessages.forms import ComposeForm
 #custom forms with css and widgets
@@ -40,8 +41,22 @@ class CustomEditProfileForm(EditProfileForm):
         for myField in self.fields:
             self.fields[myField].widget.attrs.update({'class' : 'form-control'})
 
+<<<<<<< HEAD
 class CustomMessageForm(ComposeForm):
     def __init__(self, *args, **kwargs):
         super(CustomMessageForm, self).__init__(*args, **kwargs)
         for myField in self.fields:
             self.fields[myField].widget.attrs.update({'class' : 'form-control'})
+=======
+class CustomPasswordForm(PasswordChangeForm):
+    def __init__(self, *args, **kwargs):
+        super(CustomPasswordForm, self).__init__(*args, **kwargs)
+        for myField in self.fields:
+            self.fields[myField].widget.attrs.update({'class' : 'form-control'})
+
+class CustomEmailChangeForm(ChangeEmailForm):
+    def __init__(self, *args, **kwargs):
+        super(CustomEmailChangeForm, self).__init__(*args, **kwargs)
+        for myField in self.fields:
+            self.fields[myField].widget.attrs.update({'class' : 'form-control'})
+>>>>>>> FETCH_HEAD

@@ -3,8 +3,12 @@ from django.contrib import admin
 admin.autodiscover()
 
 from views import IndexView
+<<<<<<< HEAD
 from django.contrib.auth.decorators import login_required
 from accounts.forms import CustomSignupForm, CustomSigninForm, CustomEditProfileForm, CustomMessageForm
+=======
+from accounts.forms import CustomSignupForm, CustomSigninForm, CustomEditProfileForm, CustomPasswordForm, CustomEmailChangeForm
+>>>>>>> FETCH_HEAD
 from accounts.views import CustomProfileListView
 from userena import views as userena_views
 from userena.contrib.umessages import views as messages_views
@@ -22,6 +26,10 @@ urlpatterns = patterns('',
     url(r'^accounts/(?P<username>[\.\w-]+)/edit/$', userena_views.profile_edit,
         {'edit_profile_form': CustomEditProfileForm}),
     url(r'^accounts/(?P<username>[\.\w-]+)/profile_detail/$', userena_views.profile_detail),
+    url(r'^accounts/(?P<username>[\.\w-]+)/password/$', userena_views.password_change,
+        {'pass_form':CustomPasswordForm}),
+    url(r'^accounts/(?P<username>[\.\w-]+)/email/$', userena_views.email_change,
+        {'email_form':CustomEmailChangeForm}),
     url(r'^accounts/', include('userena.urls')),
     url(r'^activities/', include('activitynetwork.urls',namespace="activities")),
     url(r'^messages/compose/(?P<recipients>[\+\.\w]+)/$',
