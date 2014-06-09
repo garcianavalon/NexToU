@@ -65,12 +65,21 @@
               <a href="{% url 'activities:create' %}">
                   <img src="{% static 'img/create.png' %}" width=10% hspace="1%"></img>
               </a>
-              <a href="info_info.html">
+              {% if user.is_authenticated %}
+                <a href="{% url 'userena_profile_detail' user.username %}">
                   <img src="{% static 'img/info.png' %}" width=6% hspace="1%"></img>
-              </a>
-              <a href="{% url 'userena_signout' %}">
+                </a>
+                <a href="{% url 'userena_signout' %}">
                   <img src="{% static 'img/logout.png' %}" width=6% ></img>
-              </a>
+                </a>
+              {% else %}
+                <a href="{% url 'userena_signin' %}">
+                  <img src="{% static 'img/login.png' %}" width=6% hspace="1%"></img>
+                </a>
+                <a href="{% url 'userena_signup' %}">
+                  <img src="{% static 'img/register.png' %}" width=6% hspace="1%"></img>
+                </a>
+              {% endif %}  
       </div>
     {% endblock %}
     {% block body %}
