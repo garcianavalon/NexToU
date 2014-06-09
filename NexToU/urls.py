@@ -3,12 +3,8 @@ from django.contrib import admin
 admin.autodiscover()
 
 from views import IndexView
-<<<<<<< HEAD
 from django.contrib.auth.decorators import login_required
-from accounts.forms import CustomSignupForm, CustomSigninForm, CustomEditProfileForm, CustomMessageForm
-=======
-from accounts.forms import CustomSignupForm, CustomSigninForm, CustomEditProfileForm, CustomPasswordForm, CustomEmailChangeForm
->>>>>>> FETCH_HEAD
+from accounts.forms import CustomSignupForm, CustomSigninForm, CustomEditProfileForm, CustomMessageForm, CustomPasswordForm, CustomEmailChangeForm
 from accounts.views import CustomProfileListView
 from userena import views as userena_views
 from userena.contrib.umessages import views as messages_views

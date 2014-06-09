@@ -41,13 +41,13 @@ class CustomEditProfileForm(EditProfileForm):
         for myField in self.fields:
             self.fields[myField].widget.attrs.update({'class' : 'form-control'})
 
-<<<<<<< HEAD
+
 class CustomMessageForm(ComposeForm):
     def __init__(self, *args, **kwargs):
         super(CustomMessageForm, self).__init__(*args, **kwargs)
         for myField in self.fields:
             self.fields[myField].widget.attrs.update({'class' : 'form-control'})
-=======
+
 class CustomPasswordForm(PasswordChangeForm):
     def __init__(self, *args, **kwargs):
         super(CustomPasswordForm, self).__init__(*args, **kwargs)
@@ -59,4 +59,4 @@ class CustomEmailChangeForm(ChangeEmailForm):
         super(CustomEmailChangeForm, self).__init__(*args, **kwargs)
         for myField in self.fields:
             self.fields[myField].widget.attrs.update({'class' : 'form-control'})
->>>>>>> FETCH_HEAD
+
