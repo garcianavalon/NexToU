@@ -1,5 +1,6 @@
 from userena.forms import SignupForm, AuthenticationForm, identification_field_factory, USERNAME_RE, EditProfileForm
 from django import forms
+from django.contrib.auth.forms import PasswordChangeForm
 from django.utils.translation import ugettext as _
 #custom forms with css and widgets
 custom_attrs_dict = {"class":"required form-control"}
@@ -36,5 +37,11 @@ class CustomEditProfileForm(EditProfileForm):
                                 required=False)
     def __init__(self, *args, **kwargs):
         super(CustomEditProfileForm, self).__init__(*args, **kwargs)
+        for myField in self.fields:
+            self.fields[myField].widget.attrs.update({'class' : 'form-control'})
+
+class CustomPasswordForm(PasswordChangeForm):
+    def __init__(self, *args, **kwargs):
+        super(CustomPasswordForm, self).__init__(*args, **kwargs)
         for myField in self.fields:
             self.fields[myField].widget.attrs.update({'class' : 'form-control'})
