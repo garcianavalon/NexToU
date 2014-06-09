@@ -4,6 +4,7 @@
 
 {% block meta %}
 
+</script>
 
 {% endblock %}
 
@@ -38,7 +39,7 @@
         <div class="tab-content">
             <div class="tab-pane active" id="taball">
                 <div class="row">
-                    {% for activity in object_list %}
+                    {% for activity in activity_list %}
                         <div class="col-sm-6 col-md-3">
                             <div class="thumbnail">
                                 <img class="mugshot" src="{{ activity.act_holder.volunteer_profile.get_mugshot_url }}" alt="{% trans "Your mugshot" %}" />
@@ -52,7 +53,14 @@
                                     {% for need in activity.need.all %}
                                        <p>{{need }}</p>
                                     {% endfor %}
-                                    <button class="btn btn-success" data-toggle="modal" href="#all1more">Follow</button>
+                                    <form action="" method="post">
+                                    {% csrf_token %}
+                                    <input name="id" value="{{activity.id}}" type="hidden">
+                                    {% if activity.id in f_activities %}
+                                        <button class="btn btn-danger" type="submit">Unfollow</button>
+                                    {% else %}
+                                        <button class="btn btn-success" type="submit">Follow</button>
+                                    {% endif %}
                                     <a href="#" class="btn btn-warning" role="button">Connect</a>
                                 </div>
                             </div>
