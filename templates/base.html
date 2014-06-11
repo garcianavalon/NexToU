@@ -72,6 +72,8 @@
                 <a href="{% url 'userena_signout' %}">
                   <img src="{% static 'img/logout.png' %}" width=6% ></img>
                 </a>
+                <br>
+                <p align="right" class="muted"><small>You are logged in as {{ user.username }}.</small></p>
               {% else %}
                 <a href="{% url 'userena_signin' %}">
                   <img src="{% static 'img/login.png' %}" width=6% hspace="1%"></img>
@@ -79,7 +81,7 @@
                 <a href="{% url 'userena_signup' %}">
                   <img src="{% static 'img/register.png' %}" width=6% hspace="1%"></img>
                 </a>
-              {% endif %}  
+              {% endif %}
       </div>
     {% endblock %}
     {% block body %}

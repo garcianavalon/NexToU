@@ -44,6 +44,7 @@
                                 <h3>{{ profile.user.get_full_name }}</h3>
                                 <p>{{profile.user.username}}</p>
                                 <p>{{ profile.intro }}</p>
+
                                 <a href="{% url 'userena_profile_detail' profile.user.username %}"class="btn btn-info" role="button">View profile</a>
                                 <a href="{% url 'userena_umessages_compose_to' profile.user.username %}" class="btn btn-warning" role="button">Connect</a>
                             </div>
