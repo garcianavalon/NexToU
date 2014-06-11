@@ -42,6 +42,8 @@ INSTALLED_APPS = (
     'guardian',
     'easy_thumbnails',
     'accounts',#this is the app for the user profiles using userena
+    'bootstrap3_datetime',
+    'userena.contrib.umessages',
 )
 
 
@@ -65,9 +67,14 @@ AUTH_PROFILE_MODULE = 'accounts.VolunteerProfile'
 ANONYMOUS_USER_ID = -1
 
 #USERENA settings
-LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
+LOGIN_REDIRECT_URL = ''
 LOGIN_URL = '/accounts/signin/'
 LOGOUT_URL = '/accounts/signout/'
+USERENA_REDIRECT_ON_SIGNOUT = '/'
+USERENA_SIGNIN_REDIRECT_URL = '/'
+USERENA_ACTIVATION_REQUIRED = False
+USERENA_DEFAULT_PRIVACY = 'open'
+USERENA_SIGNIN_AFTER_SIGNUP = True
 #SITE_ID
 SITE_ID = 1
 #EMAIL sending

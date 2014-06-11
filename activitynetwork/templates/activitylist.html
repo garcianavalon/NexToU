@@ -1,8 +1,0 @@
-{% for activity in object_list %}
-    Name: {{ activity }} <br>
-    Description: {{ activity.description }} <br>
-    Category: {{ activity.category }} <br>
-    Needs: {% for need in activity.need.all %}{{ need }}<br/>{% endfor %}
-    Schedules: {% for schedule in activity.schedule_set.all %}{{ schedule }}<br/>{% endfor %}
-{% endfor %}
-

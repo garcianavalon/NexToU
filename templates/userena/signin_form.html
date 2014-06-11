@@ -6,20 +6,18 @@
 {% block meta %}
  {% load static from staticfiles %}
   <link href="{% static "css/signinpage.css" %}" rel="stylesheet">
-   <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/Images/bootstrap/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/Images/bootstrap/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/Images/bootstrap/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="/Images/bootstrap/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="/Images/bootstrap/ico/favicon.png">
 {% endblock %}
-{% block content %}
+{% block logo %}
 <div align="center" >
-                <br/><br/>
-                <img src="{% static "img/logo.jpg" %}" width=40%>
-        <br/><br/>
-
+  <br/><br/>
+  <img src="{% static "img/logo.jpg" %}" width=40%>
+  <br/><br/>
 </div>
+{% endblock %}
+{% block search %}
+{% endblock %}
+{% block body %}
+
 <form action="" method="post" class="form-signin">
   {% csrf_token %}
   <fieldset>
