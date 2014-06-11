@@ -58,3 +58,7 @@ docs/_build/
 #private stuff
 email_settings.py
 
+#heroku
+staticfiles
+NexToU/
+
