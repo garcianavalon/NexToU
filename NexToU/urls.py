@@ -3,7 +3,6 @@ from django.contrib import admin
 admin.autodiscover()
 
 from views import IndexView
-from django.contrib.auth.decorators import login_required
 from accounts.forms import CustomSignupForm, CustomSigninForm, CustomEditProfileForm, CustomMessageForm, CustomPasswordForm, CustomEmailChangeForm
 from accounts.views import CustomProfileListView
 from userena import views as userena_views

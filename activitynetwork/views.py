@@ -24,7 +24,7 @@ class ActivityListView(ListView):
         context = super(ActivityListView, self).get_context_data(**kwargs)
         context['category_list'] = Category.objects.all()
         user = self.request.user
-        if user.is_authenticated:
+        if user.is_authenticated():
             f_activities = []
             followed_activities = Activity.objects.filter(followed_activites__id=user.volunteer_profile.id)
             for f_activity in followed_activities:
@@ -32,9 +32,10 @@ class ActivityListView(ListView):
             context['f_activities'] = f_activities
         return context
     def post(self, request, *args, **kwargs):
-        activity = Activity.objects.get(id=request.POST.get("id", ""))
+        act_id = request.POST['activity_id']
+        activity = Activity.objects.get(id=act_id)
         user = request.user
-        if user.is_authenticated:
+        if user.is_authenticated():
             profile = user.volunteer_profile
             if activity in Activity.objects.filter(followed_activites__id=profile.id):
                 profile.followed_activites.remove(activity)
@@ -49,13 +50,14 @@ class ActivityFollowingListView(ListView):
     def get_context_data(self, **kwargs):
         context = super(ActivityFollowingListView, self).get_context_data(**kwargs)
         user = self.request.user
-        if user.is_authenticated:
+        if user.is_authenticated():
             context['activity_list'] = Activity.objects.filter(followed_activites__id=user.volunteer_profile.id)
         return context
     def post(self, request, *args, **kwargs):
-        activity = Activity.objects.get(id=request.POST.get("id", ""))
+        act_id = request.POST['activity_id']
+        activity = Activity.objects.get(id=act_id)
         user = request.user
-        if user.is_authenticated:
+        if user.is_authenticated():
             profile = user.volunteer_profile
             if activity in Activity.objects.filter(followed_activites__id=profile.id):
                 profile.followed_activites.remove(activity)
