@@ -2,7 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
-from views import IndexView
+from views import IndexView, TestForms
 from django.contrib.auth.decorators import login_required
 from accounts.forms import CustomSignupForm, CustomSigninForm, CustomEditProfileForm, CustomMessageForm, CustomPasswordForm, CustomEmailChangeForm
 from accounts.views import CustomProfileListView

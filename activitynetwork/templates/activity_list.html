@@ -53,15 +53,16 @@
                                     {% for need in activity.need.all %}
                                        <p>{{need }}</p>
                                     {% endfor %}
-                                    <form action="" method="post">
+                                    <form method="post">
                                     {% csrf_token %}
-                                    <input name="id" value="{{activity.id}}" type="hidden">
+                                    <input name="activity_id" value="{{activity.id}}" type="hidden">
                                     {% if activity.id in f_activities %}
-                                        <button class="btn btn-danger" type="submit">Unfollow</button>
+                                        <button class="btn btn-danger" type="submit" name="unfollow{{activity.id}}">Unfollow</button>
                                     {% else %}
-                                        <button class="btn btn-success" type="submit">Follow</button>
+                                        <button class="btn btn-success" type="submit" name="follow{{activity.id}}">Follow</button>
                                     {% endif %}
-                                    <a href="{% url 'userena_umessages_compose' %}" class="btn btn-warning" role="button">Connect</a>
+                                        <a href="{% url 'userena_umessages_compose' %}" class="btn btn-warning" role="button">Connect</a>
+                                    </form>
                                 </div>
                             </div>
                         </div>

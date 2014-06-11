@@ -32,7 +32,8 @@ class ActivityListView(ListView):
             context['f_activities'] = f_activities
         return context
     def post(self, request, *args, **kwargs):
-        activity = Activity.objects.get(id=request.POST.get("id", ""))
+        act_id = request.POST['activity_id']
+        activity = Activity.objects.get(id=act_id)
         user = request.user
         if user.is_authenticated():
             profile = user.volunteer_profile
