@@ -54,7 +54,8 @@ class ActivityFollowingListView(ListView):
             context['activity_list'] = Activity.objects.filter(followed_activites__id=user.volunteer_profile.id)
         return context
     def post(self, request, *args, **kwargs):
-        activity = Activity.objects.get(id=request.POST.get("id", ""))
+        act_id = request.POST['activity_id']
+        activity = Activity.objects.get(id=act_id)
         user = request.user
         if user.is_authenticated():
             profile = user.volunteer_profile
